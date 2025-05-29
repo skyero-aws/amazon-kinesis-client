@@ -24,7 +24,7 @@
   <name>Amazon Kinesis Client Library</name>
   <version>3.0.3-SNAPSHOT</version>
   <description>The Amazon Kinesis Client Library for Java enables Java developers to easily consume and process data
-    from Amazon Kinesis.
+    from Amazon Kinesis. test
   </description>
   <url>https://aws.amazon.com/kinesis</url>
 
