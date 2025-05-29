@@ -34,8 +34,8 @@ jobs:
           cd amazon-kinesis-client-multilang
           pwd
           mkdir -p pom-sync
-          mvn -B dependency:list -DincludeScope=runtime | grep ".*:.*:.*:.*:.*" | awk '{print $2}' | grep -v "^Can't"
+          mvn -B dependency:list -DincludeScope=runtime | grep ".*:.*:.*:.*:.*" | awk '{print $2}' | grep -v "^Can't" > pom-sync/multilang_dependencies.txt
           cp -a pom-sync src/main/resources
 
       - name: Print Dependency List
-        run: pwd && ls
+        run: pwd && cat amazon-kinesis-client-multilang/pom-sync/multilang_dependencies.txt
