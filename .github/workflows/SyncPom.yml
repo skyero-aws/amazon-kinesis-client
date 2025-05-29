@@ -24,13 +24,14 @@ jobs:
           java-version: '8'
           distribution: 'corretto'
 
-      - name: Install with Maven
-        run: |
-          cd amazon-kinesis-client-multilang 
-          mvn install
+#      - name: Install with Maven
+#        run: |
+#          cd amazon-kinesis-client-multilang
+#          mvn install
 
       - name: Create and Update Dependency List
         run: |
+          cd amazon-kinesis-client-multilang 
           mkdir -p pom-sync
           mvn dependency:list -DincludeScope=runtime | grep ".*:.*:.*:.*:.*" | awk '{print $2}' | grep -v "^Can't" > pom-sync/multilang_dependencies.txt
           cp -a pom-sync src/main/resources
