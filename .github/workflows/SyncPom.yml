@@ -4,8 +4,8 @@ name: Multilang POM file to Dependency list
 on:
   push:
     branches: [ 'master', 'sync-pom' ]
-    paths:
-      - '**.xml'
+#    paths:
+#      - '**.xml'
 
 permissions:
   contents: write
@@ -37,4 +37,4 @@ jobs:
           cp -a pom-sync src/main/resources
 
       - name: Print Dependency List
-        run: cat pom-sync/multilang_dependencies.txt
+        run: pwd && cat pom-sync/multilang_dependencies.txt
