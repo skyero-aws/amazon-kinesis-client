@@ -5,7 +5,7 @@ on:
   push:
     branches: [ 'master', 'sync-pom' ]
     paths:
-      - '**.xml'
+      - 'pom.xml'
 
 permissions:
   contents: write
