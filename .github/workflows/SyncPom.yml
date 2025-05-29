@@ -1,0 +1,39 @@
+#This workflow will translate the multilang POM file into a dependency list
+
+name: Multilang POM file to Dependency list
+on:
+  push:
+    branches: [ 'master', 'sync-pom' ]
+    paths:
+      - '**.xml'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-dependency-list:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          java-version: '8'
+          distribution: 'corretto'
+
+      - name: Install with Maven
+        run: |
+          cd amazon-kinesis-client-multilang 
+          mvn install
+
+      - name: Create and Update Dependency List
+        run: |
+          mkdir -p pom-sync
+          mvn dependency:list -DincludeScope=runtime | grep ".*:.*:.*:.*:.*" | awk '{print $2}' | grep -v "^Can't" > pom-sync/multilang_dependencies.txt
+          cp -a pom-sync src/main/resources
+
+      - name: Print Dependency List
+        run: cat pom-sync/multilang_dependencies.txt
