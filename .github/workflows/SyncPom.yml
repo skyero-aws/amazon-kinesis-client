@@ -38,4 +38,4 @@ jobs:
           cp -a pom-sync src/main/resources
 
       - name: Print Dependency List
-        run: pwd && cat pom-sync/multilang_dependencies.txt
+        run: pwd && ls
