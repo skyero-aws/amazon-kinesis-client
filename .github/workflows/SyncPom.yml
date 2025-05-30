@@ -40,8 +40,8 @@ jobs:
           mvn -B -ntp dependency:list -DincludeScope=runtime \
             | grep ".*:.*:.*:.*:.*" \
             | grep -v "^\s*$" \
-            | awk '{print $2}' \
-            | grep -v "^Can't" > pom-sync/multilang_dependencies.txt
+            | grep -v "^Can't" \
+            | awk '{print $2}' > pom-sync/multilang_dependencies.txt
           cp -a pom-sync src/main/resources
 
       - name: Print Dependency List
