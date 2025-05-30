@@ -4,16 +4,22 @@ name: Multilang POM file to Dependency list
 on:
   push:
     branches: [ 'master', 'sync-pom' ]
-#    paths:
-#      - '**/pom.xml'
+    paths:
+      - '**/pom.xml'
+      - '.github/workflows/SyncPom.yml'
 
 permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-dependency-list:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v4
