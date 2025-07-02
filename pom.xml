@@ -29,6 +29,8 @@
   <url>https://aws.amazon.com/kinesis</url>
 
   <scm>
+    <connection>scm:git:git://github.com/awslabs/amazon-kinesis-client.git</connection>
+    <developerConnection>scm:git:ssh://github.com/awslabs/amazon-kinesis-client.git</developerConnection>
     <url>https://github.com/awslabs/amazon-kinesis-client.git</url>
   </scm>
 
