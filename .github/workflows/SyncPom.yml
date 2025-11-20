@@ -45,7 +45,7 @@ jobs:
           cp -a pom-sync src/main/resources
 
       - name: Convert Dependency List to JSON and Copy to Resources
-        working-directory: amazon-kinesis-client-library
+        working-directory: amazon-kinesis-client-multilang
         run: |
           echo "HELLO WORLD"
 
