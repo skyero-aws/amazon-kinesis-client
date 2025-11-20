@@ -37,7 +37,7 @@ jobs:
         working-directory: amazon-kinesis-client-multilang
         run: |
           pwd && mkdir -p pom-sync
-          mvn -B -ntp dependency:list -DincludeScope=runtime \
+          mvn -B -ntp dependency:list -DincludeScope=compile \
             | grep ".*:.*:.*:.*:.*" \
             | grep -v "^\s*$" \
             | grep -v "^Can't" \
