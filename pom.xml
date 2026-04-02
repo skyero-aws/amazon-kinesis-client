@@ -33,7 +33,7 @@
   </scm>
 
   <properties>
-    <awssdk.version>2.41.21</awssdk.version>
+    <awssdk.version>2.42.23</awssdk.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
